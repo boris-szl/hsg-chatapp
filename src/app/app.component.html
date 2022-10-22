@@ -1,5 +1,29 @@
 <app-header></app-header>
 <main>
-
+    <div class="container">
+        <div class="item">
+            <mat-card>
+                <div class="child-1">
+                    <mat-card-content>
+                        <img src="">
+                    </mat-card-content>
+                    <mat-card-title>Profilbild</mat-card-title>    
+                </div>
+                <div class="child-2">
+                    <span class="text">Nickname</span>
+                    <mat-divider></mat-divider>
+                    <mat-form-field>
+                        <textarea matInput rows="1" placeholder="Enter here"></textarea>
+                    </mat-form-field>
+                </div>
+            </mat-card>
+        </div>
+        <div class="item">
+            <mat-card>
+                <app-chat-output [messages]="enteredMessages"></app-chat-output>
+                <app-chat-input (messageCreated)="onMessageEntered($event)"></app-chat-input>
+            </mat-card> 
+        </div>
+    </div>
 </main>
 <app-footer></app-footer>

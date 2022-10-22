@@ -1,0 +1,13 @@
+
+<div class="chat-input-widget">
+    <mat-card>
+        <div class="chat-input-elementes">
+            <mat-form-field>
+                <textarea matInput rows="1" placeholder="Nachricht" [(ngModel)]="enteredMessage"></textarea>
+            </mat-form-field>
+        </div>
+    </mat-card>
+    <div class="button">
+        <button mat-raised-button (click)="onSendMessage()">Senden</button>
+    </div>
+</div>
