@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hsg-chatapp';
+
+  enteredMessages = Array();
+  onMessageEntered(message: any) {
+    this.enteredMessages.push(message);
+  }
 }

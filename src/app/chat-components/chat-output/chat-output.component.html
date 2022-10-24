@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="item" *ngIf="messages.length > 0">
+        <mat-card class="chat-output">
+            <mat-card-content *ngFor="let message of messages">
+                <p class="message"> {{ message.content }}
+            </mat-card-content>
+        </mat-card>
+    </div> 
+</div>
+
