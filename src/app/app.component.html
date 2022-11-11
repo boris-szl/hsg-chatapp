@@ -1,28 +1,28 @@
 <app-header></app-header>
 <main>
-    <div class="container">
-        <div class="item">
-            <mat-card>
-                <div class="child-1">
-                    <mat-card-content>
-                        <img src="">
-                    </mat-card-content>
-                    <mat-card-title>Profilbild</mat-card-title>    
+    <div class="my-12 mx-auto px-4 md:px-12">
+        <div class="flex flex-row mx-1 lg:mx-4">
+            <div class="container my-1 px-1 w-full md:w-1/2 lg:my4 lg:mx-4 lg:w-1/3">
+                <div class="">
+                    <div class="">
+                        <img class="w-16 md:w-32 lg:w-48 rounded-full" src="../assets/default.png"> 
+                        <h1>Profilbild</h1>
+                    </div>
+                    <div class="">
+                        <profile-input></profile-input>
+                    </div>
                 </div>
-                <div class="child-2">
-                    <span class="text">Nickname</span>
-                    <mat-divider></mat-divider>
-                    <mat-form-field>
-                        <textarea matInput rows="1" placeholder="Enter here"></textarea>
-                    </mat-form-field>
+            </div>
+            <div class="container my-1 px-1 w-full md:w-1/2 lg:my4 lg:mx-4 lg:w-1/3">
+                <div class="">
+                    <div class="h-96 overflow-y-scroll">
+                        <app-chat-output></app-chat-output>
+                    </div>
+                    <div>
+                        <app-chat-input></app-chat-input>
+                    </div>
                 </div>
-            </mat-card>
-        </div>
-        <div class="item">
-            <mat-card>
-                <app-chat-output [messages]="enteredMessages"></app-chat-output>
-                <app-chat-input (messageCreated)="onMessageEntered($event)"></app-chat-input>
-            </mat-card> 
+            </div>
         </div>
     </div>
 </main>

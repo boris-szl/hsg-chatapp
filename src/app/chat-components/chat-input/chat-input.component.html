@@ -1,13 +1,17 @@
 
-<div class="chat-input-widget">
-    <mat-card>
-        <div class="chat-input-elementes">
-            <mat-form-field>
-                <textarea matInput rows="1" placeholder="Nachricht" [(ngModel)]="enteredMessage"></textarea>
-            </mat-form-field>
-        </div>
-    </mat-card>
-    <div class="button">
-        <button mat-raised-button (click)="onSendMessage()">Senden</button>
+<div class="">
+    <div class="">
+        <form (keyup.enter)="onSendMessage(chatForm)" (submit)="onSendMessage(chatForm)" #chatForm="ngForm">
+            <div class="flex">
+                <div class="overflow-hidden">
+                    <input class="text-black w-full border w-96 rounded-xl pl-4 h-10 focus:outline-none"  name="content" placeholder="Nachricht" ngModel required #content="ngModel"/>
+                </div>
+                <div class="ml-2">
+                    <button mat-raised-button class="ml-4" type="submit">Senden</button>
+                </div>
+            </div>
+        </form>
+
     </div>
 </div>
+
