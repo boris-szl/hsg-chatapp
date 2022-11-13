@@ -1,9 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 main {
     margin-top: 1rem;
     width: 80%;
     margin: auto;
 }
-
 
 .item {
     flex-basis: auto;
@@ -12,59 +15,7 @@ main {
 .container {
     display: flex;
     justify-content: space-evenly;
-    background-color: white;
     gap: 2rem;
     position: relative;
     transform: translate(0rem, 5rem);
 }
-
-mat-card {
-    width: 500px;
-    height: 500px;
-    background-color: white;
-    color: green;
-}
-
-app-chat-input {
-    margin: 0;
-    width: 95%;
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-mat-divider {
-    background-color: green;
-}
-
-.child-2 {
-    position: absolute;
-    bottom: 0;
-}
-
-mat-card-content {
-    height: 125px;
-    width: 125px;
-    border-radius: 50%;
-
-    background-color: lightgray;
-}
-
-mat-card-title {
-    text-align: center;
-    font-size: 1.25em;
-}
-
-.child-1 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-mat-form-field {
-    width: 500px;
-}
-
-

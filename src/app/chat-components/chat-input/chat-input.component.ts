@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { ChatService } from "../chat.service";
 
 
 @Component({
@@ -9,14 +11,15 @@ import { Component, EventEmitter, Output } from "@angular/core";
 
 export class ChatInputComponent {
     
-    enteredMessage = "";
-    @Output() messageCreated = new EventEmitter();
+    constructor(public chatService: ChatService) {}
 
-    onSendMessage() {
-        let message = {
-            content: this.enteredMessage,
-        };
+    onSendMessage(form: NgForm) {
+        if (form.invalid) {
+            return;
+        }
 
-        this.messageCreated.emit(message);
+        this.chatService.addChatMessage('user1', form.value.content);
+        form.resetForm();
     }
+
 }

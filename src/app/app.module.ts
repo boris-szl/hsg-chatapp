@@ -15,9 +15,10 @@ import { MatCardModule } from '@angular/material/card'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 
-
+import { HttpClientModule } from '@angular/common/http';
+import { ProfileInputComponent } from './profile-components/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatDividerModule} from '@angular/material/divider';
     HeaderComponent,
     FooterComponent,
     ChatInputComponent,
-    ChatOutputComponent
+    ChatOutputComponent,
+    ProfileInputComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

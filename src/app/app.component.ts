@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hsg-chatapp';
 
-  enteredMessages = Array();
-  onMessageEntered(message: any) {
-    this.enteredMessages.push(message);
-  }
+  username: string = "Boris Szelcsanyi";
+  matno: string = "19-606-656"
+
 }
