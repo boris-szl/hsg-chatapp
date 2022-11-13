@@ -1,6 +1,8 @@
-<div class="">
-    <div class="">
-        <p>Nickname</p>
-        <input type="text" #box (keyup.enter)="getValue(box.value)" placeholder="Enter Nickname" name="nickname">
-    </div>
-</div>
+<form>
+    <label class="block">
+        <span class="block test-sm font-medium text-slate-700">Username</span>
+            <input type="text" #box (keyup.enter)="getValue(box.value)" placeholder="Eingabe Username" name="nick"
+            class="text-black w-fit border w-96 rounded-xl pl-4 h-10 focus:outline-none">
+    </label>
+</form>
+

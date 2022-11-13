@@ -1,10 +1,15 @@
 const express = require('express');
 const bodyParser = require("body-parser")
+const cors = require('cors')
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
+
+// app.use(cors({
+//     origin: ['http://localhost:3000/*', 'http;//localhost:4200/*']
+// }))
 
 app.use((req, res, next) => {
 
@@ -24,8 +29,7 @@ app.post("/api/chats", (req, res, next) => {
 
 app.get('/api/chats', (req, res, next) => {
     const chats = [
-        { id: 'user01', username: 'frodo', content: "This is coming from the server"},
-        { id: 'user02', username: 'gandalf', content: "This is coming from the server"},
+        { id: 'user01', username: 'ServiceDesk', chatContent: "Guten Tag"},
     ];
     res.status(200).json({
         message: 'Chats received!',

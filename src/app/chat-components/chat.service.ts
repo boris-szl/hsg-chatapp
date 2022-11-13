@@ -7,6 +7,7 @@ import { User } from "../profile-components/user.model";
 
 @Injectable({providedIn: 'root'})
 export class ChatService {
+    private username: string = "";
     private user: User[] = [];
     private chats: Chat[] = [];
     private chatHistory =  new Subject<Chat[]>();
@@ -39,7 +40,7 @@ export class ChatService {
     }
 
     addChatMessage(id: string, content: string) {
-        const chat: Chat = { userId: "user01", username: 'frodo', chatContent: content};
+        const chat: Chat = { userId: "user01", username: 'ServiceDesk', chatContent: content};
         this.http.post<{message: string}>('http://localhost:3000/api/chats', chat).subscribe((responseData) => {
             console.log(responseData.message);
             this.chats.push(chat)
