@@ -1,9 +1,11 @@
 const express = require('express');
-const bodyParser = require("body-parser")
-const cors = require('cors')
-const mongoose = require("mongoose")
+const bodyParser = require("body-parser");
+const cors = require('cors');
+const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://hsgchatapp:hsgchatapp@hsgchatapp.tjbi9gb.mongodb.net/hsgchatapp?retryWrites=true&w=majority")
+const db_password = process.env.DB_PW
+
+mongoose.connect(`mongodb+srv://hsgchatapp:hsgchatapp@hsgchatapp.tjbi9gb.mongodb.net/${db_password}?retryWrites=true&w=majority`)
     .then(() => {
         console.log("Connected to database!");
     })
