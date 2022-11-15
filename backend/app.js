@@ -1,15 +1,22 @@
 const express = require('express');
 const bodyParser = require("body-parser")
 const cors = require('cors')
+const mongoose = require("mongoose")
+
+mongoose.connect("mongodb+srv://hsgchatapp:hsgchatapp@hsgchatapp.tjbi9gb.mongodb.net/hsgchatapp?retryWrites=true&w=majority")
+    .then(() => {
+        console.log("Connected to database!");
+    })
+    .catch(() => {
+        console.log("Connection failed!");
+    });
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
-// app.use(cors({
-//     origin: ['http://localhost:3000/*', 'http;//localhost:4200/*']
-// }))
+
 
 app.use((req, res, next) => {
 
@@ -19,48 +26,30 @@ app.use((req, res, next) => {
     next();
 });
 
+const Chat = require('./models/chat.js');
+
 app.post("/api/chats", (req, res, next) => {
-    const chat = req.body;
-    console.log(chat);
-    res.status(201).json({
-        message: 'Chat message sent!'
+    const chat = new Chat({
+        username: req.body.username,
+        message: req.body.message,
+        date: req.body.date
     });
+    chat.save().then(createdPost => {
+        res.status(201).json({
+            message: 'Chat message sent!',
+            chatId: createdPost._id
+        });
+    })
 });
 
 app.get('/api/chats', (req, res, next) => {
-    const chats = [
-        { id: 'user01', username: 'ServiceDesk', chatContent: "Guten Tag"},
-    ];
-    res.status(200).json({
-        message: 'Chats received!',
-        chats: chats
-    });
-})
-
-app.get('/api/user', (req, res, next) => {
-    const user = [
-        {
-            username: "Frodo"
-        }
-    ];
-    res.status(200).json({
-        message: 'Username received!',
-        user: user
+    Chat.find().then(documents => {
+        res.status(200).json({
+            message: 'Chats received!',
+            chats: documents
+        });
     });
 });
-
-app.post("/api/user", (req, res, next) => {
-    const user = req.body;
-    console.log(user);
-    res.status(201).json({
-        message: 'Username sent!'
-    });
-});
-
-// app.get('/api/users)
-// app.post('/api/users)
-
-// app.post
 
 
 module.exports = app;

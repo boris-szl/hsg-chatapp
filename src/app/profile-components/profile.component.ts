@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { SharedService } from "../shared/shared.Service";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 
 @Component({
     selector: 'profile-input',
@@ -7,19 +6,12 @@ import { SharedService } from "../shared/shared.Service";
     styleUrls: ['./profile.component.css']
 })
 
-export class ProfileInputComponent implements OnInit {
+export class ProfileInputComponent {
 
-    constructor(private shared: SharedService) {}
-    username='';
-    ngOnInit(): void {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-        this.shared.setMessage(this.username);
+    username: string = '';
+    @Output() dataChange = new EventEmitter();
+
+    sendData(value: string) {
+        this.dataChange.emit(value);
     }
-
-    getValue(value: string) {
-        console.log(value);
-        this.username = value;
-    }
-
 }

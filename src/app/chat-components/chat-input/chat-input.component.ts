@@ -18,7 +18,7 @@ export class ChatInputComponent {
             return;
         }
 
-        this.chatService.addChatMessage('user1', form.value.content);
+        this.chatService.addChatMessage('ServiceDesk', form.value.content, new Date().toLocaleTimeString());
         form.resetForm();
     }
 

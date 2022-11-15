@@ -7,7 +7,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-  username: string = "Boris Szelcsanyi";
+  username: string = "";
   matno: string = "19-606-656"
-
+  
+  onDataChange(data: string) {
+    this.username = data;
+  }
 }

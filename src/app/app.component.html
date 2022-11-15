@@ -5,8 +5,12 @@
         <div class="container flex flex-col">
             <div class="self-center">
                 <img class="w-16 md:w-32 lg:w-48 rounded-full" src="../assets/boris.jpg"> 
-                <p class="text-center pt-4 font-medium text-2xl">{{ username }}</p>
+                <p class="text-center pt-2 font-medium text-2xl">{{ username }}</p>
+                <!-- <input type="text" name="username"> -->
                 <!-- <p class="text-center font-small text-xl">{{ matno }}</p> -->
+            </div>
+            <div class="px-4 self-center">
+                <profile-input (dataChange)="onDataChange($event)"></profile-input>
             </div>
         </div>
     </div>

@@ -13,18 +13,16 @@ import { SharedService } from "src/app/shared/shared.Service";
 
 export class ChatOutputComponent implements OnInit, OnDestroy{
 
+    @Input() username = '';
+
+    timestamp: string = new Date().toLocaleString('de');
+    
     chats: Chat[] = [];
     private chatSub: Subscription = new Subscription();
 
-    username?: string;
-
-    constructor(
-        public chatService: ChatService,
-        private shared: SharedService) {}
-    
+    constructor(public chatService: ChatService) {}
 
     ngOnInit(): void {
-        this.username = this.shared.getMessage()
         this.chatService.getChats();
         this.chatSub = this.chatService.getChatUpdateListener()
         .subscribe((chats: Chat[]) => {
