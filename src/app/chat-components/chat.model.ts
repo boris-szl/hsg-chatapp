@@ -1,5 +1,6 @@
 export interface Chat {
-    userId: string;
+    id: string;
     username: string;
-    chatContent: string;
+    message: string;
+    date: string;
 }

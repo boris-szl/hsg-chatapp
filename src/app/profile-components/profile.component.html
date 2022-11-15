@@ -1,8 +1,8 @@
 <form>
-    <label class="block">
-        <span class="block test-sm font-medium text-slate-700">Username</span>
-            <input type="text" #box (keyup.enter)="getValue(box.value)" placeholder="Eingabe Username" name="nick"
-            class="text-black w-fit border w-96 rounded-xl pl-4 h-10 focus:outline-none">
-    </label>
+    <div class="flex flex-cols items-stretch">
+        <span class="py-2 block test-sm font-medium text-slate-700">Username</span>
+        <input type="text" #box (keyup.enter)="sendData(box.value)" placeholder="Eingabe Username" name="username"
+            class="self-center ml-2 text-black w-fit border rounded-xl pl-4 h-6 focus:outline-none">
+    </div>
 </form>
 
