@@ -1,3 +1,5 @@
+const dotenv = require("dotenv").config()
+
 const express = require('express');
 const bodyParser = require("body-parser");
 const cors = require('cors');
@@ -5,7 +7,7 @@ const mongoose = require("mongoose");
 
 const db_password = process.env.DB_PW
 
-mongoose.connect(`mongodb+srv://hsgchatapp:hsgchatapp@hsgchatapp.tjbi9gb.mongodb.net/${db_password}?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://hsgchatapp:${db_password}@hsgchatapp.tjbi9gb.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => {
         console.log("Connected to database!");
     })
