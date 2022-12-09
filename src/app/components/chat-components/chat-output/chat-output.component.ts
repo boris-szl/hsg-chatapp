@@ -1,9 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { Chat } from "../chat.model";
-import { ChatService } from "../chat.service";
-import { SharedService } from "src/app/shared/shared.Service";
-
+import { Chat } from "../../../models/chat.model";
+import { ChatService } from "../../../services/chat.service";
 
 @Component({
     selector: 'app-chat-output',
@@ -13,13 +11,13 @@ import { SharedService } from "src/app/shared/shared.Service";
 
 export class ChatOutputComponent implements OnInit, OnDestroy{
 
-    @Input() username = '';
-
+    // @Input() username = '';
+    username: string = "";
     timestamp: string = new Date().toLocaleString('de');
     
     chats: Chat[] = [];
     private chatSub: Subscription = new Subscription();
-
+    
     constructor(public chatService: ChatService) {}
 
     ngOnInit(): void {

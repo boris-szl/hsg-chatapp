@@ -3,7 +3,7 @@
         <form class="pb-4 px-4" (keyup.enter)="onSendMessage(chatForm)" (submit)="onSendMessage(chatForm)" #chatForm="ngForm">
             <div class="flex flex-row justify-between">
                 <div class="">
-                    <input class="text-black w-96 h-10 focus:outline-none"  name="content" placeholder="Nachricht" ngModel required #content="ngModel"/>
+                    <input class="text-black w-96 focus:outline-none"  name="content" placeholder="Nachricht" ngModel required #content="ngModel"/>
                 </div>
                 <div class="self-center">
                     <button class="bg-green-700 rounded-full px-1 py-1" type="submit">

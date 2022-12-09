@@ -10,7 +10,7 @@
                 <!-- <p class="text-center font-small text-xl">{{ matno }}</p> -->
             </div>
             <div class="px-4 self-center">
-                <profile-input (dataChange)="onDataChange($event)"></profile-input>
+                <profile-input (usernameInput)="changeUsername($event)"></profile-input>
             </div>
         </div>
     </div>
@@ -57,13 +57,13 @@
                                 <img class="bg-white w-12 md:w-12 lg:w-42 rounded-full" alt="unisg-logo" src="../assets/logo-01.svg">
                             </div>
                             <div class="ml-4 self-center">
-                                <span class="text-l font-medium">ServicDesk</span>
+                                <span class="text-l font-medium">{{ username }}</span>
                             </div>
                         </div>    
                     </div>
                     <app-chat-output></app-chat-output>
                     <mat-divider></mat-divider>
-                    <app-chat-input></app-chat-input>
+                    <app-chat-input [username]="username"></app-chat-input>
                 </div>
             </div>
         </div>

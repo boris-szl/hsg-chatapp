@@ -8,10 +8,13 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 
 export class ProfileInputComponent {
 
-    username: string = '';
-    @Output() dataChange = new EventEmitter();
+    // constructor(public userService: UserService) {}
+
+    @Output() usernameInput = new EventEmitter<string>();
 
     sendData(value: string) {
-        this.dataChange.emit(value);
+        this.usernameInput.emit(value);
+        console.log(value)
+        
     }
 }

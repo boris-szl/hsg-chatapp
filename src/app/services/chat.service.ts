@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { Chat } from "./chat.model";
+import { Chat } from "../models/chat.model";
 import { Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { map } from 'rxjs/operators'
-import { User } from "../profile-components/user.model";
+import { User } from "../models/user.model";
 
 @Injectable({providedIn: 'root'})
 export class ChatService {
@@ -11,7 +11,7 @@ export class ChatService {
     private chatHistory =  new Subject<Chat[]>();
 
     constructor(private http: HttpClient) {}
-
+    
     getChats() {
         this.http.get<{message: string, chats: any}>('http://localhost:3000/api/chats')
         .pipe(map((chatData) => {
@@ -44,6 +44,5 @@ export class ChatService {
             this.chats.push(chat)
             this.chatHistory.next([...this.chats]);
         })
-
     }
 }
