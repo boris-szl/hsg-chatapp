@@ -2,20 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-    margin-top: 1rem;
-    width: 80%;
-    margin: auto;
+
+
+mat-sidenav {
+    margin: 16px;
+    width: 250px;
+    border-right: none;
+    background: green;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
 }
 
-.item {
-    flex-basis: auto;
+.content {
+    height: calc(100vh - 98px);
+    margin: 16px;
+    margin-left: 32px;
+    font-size: 2rem;
+    color: lightgray;
+    border-radius: 10px;
+    overflow: auto;
 }
 
-.container {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 2rem;
-    position: relative;
-    transform: translate(0rem, 5rem);
+
+.avatar {
+    margin-top: 16px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
 }
+
+.name {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background: white;
+}
+
+mat-icon {
+    color: green;
+    margin-right: 8px;
+}
+
+
+
+
+
+

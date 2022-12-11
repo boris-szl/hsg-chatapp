@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 const chatSchema = new mongoose.Schema({
-    username: { type: String, default: "Mock User"},
-    message: { type: String, default: "Mock Message"},
+    username: { type: String },
+    message: { type: String },
     date: { type: String }
 });
 

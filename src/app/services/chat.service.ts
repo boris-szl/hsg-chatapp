@@ -3,7 +3,6 @@ import { Chat } from "../models/chat.model";
 import { Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { map } from 'rxjs/operators'
-import { User } from "../models/user.model";
 
 @Injectable({providedIn: 'root'})
 export class ChatService {

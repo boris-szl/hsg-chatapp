@@ -39,7 +39,7 @@ app.post("/api/chats", (req, res, next) => {
     const chat = new Chat({
         username: req.body.username,
         message: req.body.message,
-        date: req.body.date
+        // date: req.body.date
     });
 
     if (chat.username)

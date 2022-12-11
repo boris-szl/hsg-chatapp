@@ -1,13 +1,47 @@
-<app-header></app-header>
+<mat-toolbar class="bg-white flex justify-between">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon> 
+    </button>     
+    <div class="text">
+        <span class="text-2xl pt-10 pl-4 text-green-700 font-bold">Chat@HSG</span>
+    </div>
+    <div class="logo">
+        <img class="w-32 h-32" src="../assets/logo.svg">    
+    </div>      
+</mat-toolbar>
 
+
+<mat-sidenav-container>
+    <mat-sidenav class="mat-elevation-z8" mode="side" opened #sidenav="matSidenav">
+        <div class="user">
+            <img class="avatar mat-elevation-z8" src="../assets/boris.jpg">
+            <mat-divider></mat-divider>
+            <h4 class-="name">Boris</h4>
+            <p class="designation">Student</p>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+            <div class="content mat-elevation-z4">
+                <!-- Chat Components -->
+                <app-home></app-home>
+            </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- 
 <div class="grid grid-cols-4">
     <div class="col-span-1">
         <div class="container flex flex-col">
             <div class="self-center">
                 <img class="w-16 md:w-32 lg:w-48 rounded-full" src="../assets/boris.jpg"> 
                 <p class="text-center pt-2 font-medium text-2xl">{{ username }}</p>
-                <!-- <input type="text" name="username"> -->
-                <!-- <p class="text-center font-small text-xl">{{ matno }}</p> -->
             </div>
             <div class="px-4 self-center">
                 <profile-input (usernameInput)="changeUsername($event)"></profile-input>
@@ -68,6 +102,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<app-footer></app-footer>    
+<!-- <app-footer></app-footer>     -->
