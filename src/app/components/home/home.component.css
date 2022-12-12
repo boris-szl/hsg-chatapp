@@ -8,7 +8,7 @@
 .chat-list {
     width: 40%;
     margin: 16px;
-    background: #c5cae9;
+    background: white;
     border-radius: 16px;
 }
 
@@ -24,4 +24,9 @@
 
 .chat-name {
     font-weight: 500;
+    color: green;
+}
+
+h4 {
+    color: green;
 }
