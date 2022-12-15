@@ -1,10 +1,11 @@
-export interface ProfileUser {
-    uid: string;
-    email?: string;
-    displayName?: string;
-    photoURL?: string;
-    firstName?: string;
-    lastName?: string;
-    phone?: string;
-    address?: string;
+export class Person {
+  private static nickname: string;
+
+  public static get Nickname(): string {
+    return this.nickname;
   }
+
+  public static set Nickname(value: string) {
+    this.nickname = value;
+  }
+}

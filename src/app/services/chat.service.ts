@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Chat } from "../models/chat.model";
-import { Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { map } from 'rxjs/operators'
 
@@ -44,4 +44,8 @@ export class ChatService {
             this.chatHistory.next([...this.chats]);
         })
     }
+
+    // addChatMessage(chatId: string, message: string): Observable<any> {
+    //     const 
+    // }
 }

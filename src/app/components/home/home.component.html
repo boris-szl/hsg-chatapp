@@ -27,7 +27,36 @@
             </mat-list-option>
         </mat-selection-list>
     </div>
-    <div class="messages mat-elevation-z5">
-    
-    </div> 
+    <div class="messages mat-elevation-z5"> 
+        <div class="messages-header">
+            <img src=".././assets/default.png" alt="">
+             <h2>Chatroom</h2>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="chat-area">
+            <ng-container *ngIf="user$ as currentUser">
+                <ng-container *ngIf="messages$ as messages">
+                    <div 
+                    class="chat-bubbble-container"
+                    *ngFor="let message of messages"
+                    [ngClass]="{ 'sender' : message.senderId === currentUser }">
+                        <div class="chat-bubble">
+                          {{ message.text }}
+                          <span class="chat-date">
+                            {{ message.sentDate }}
+                          </span>
+                      </div>
+                  </div>
+                </ng-container>
+            </ng-container>
+        </div> 
+        <div class="input-area">
+            <mat-form-field appearance="outline">
+                <input [formControl]="messageControl" matInput placeholder="Eingabe der Nachricht ..." (keydown.enter)="sendMessage()" />
+                <button mat-icon-button matSuffix (click)="sendMessage()">
+                    <mat-icon>send</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+    </div>
 </div>
