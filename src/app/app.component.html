@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial scale= 1.0">
 <mat-toolbar class="bg-white flex justify-between">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
@@ -8,7 +9,8 @@
         </mat-icon> 
     </button>     
     <div class="text">
-        <span class="text-2xl pt-10 pl-4 text-green-700 font-bold">Chat@HSG</span>
+        <img class="chat-logo" src="../assets/chatapplogo.svg">
+        <h2>Chat@HSG</h2>
     </div>
     <div class="logo">
         <img class="w-32 h-32" src="../assets/logo.svg">    
@@ -21,14 +23,25 @@
         <div class="user">
             <img class="avatar mat-elevation-z8" src="../assets/default.png">
             <mat-divider></mat-divider>
-            <h4 class-="name">Boris</h4>
+            <h4 class-="name">{{ nickname }}</h4>
             <p class="designation">Student</p>
+            <input
+            [(ngModel)]="nickname"
+            class="form-control"
+            placeholder="type nickname here..."
+            (keydown.enter)="createNickname(nickname)"/>
+            <button
+            class="btn btn-primary"
+            [disabled]="!nickname"
+            (click)="createNickname(nickname)"
+            ></button>
         </div>
+        <div *ngIf="message" class="alert alert-info">{{ message }}</div>
     </mat-sidenav>
     <mat-sidenav-content>
             <div class="content mat-elevation-z4">
                 <!-- Chat Components -->
-                <app-home></app-home>
+                <app-home [nickname]="nickname"></app-home>
             </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

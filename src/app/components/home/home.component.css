@@ -1,4 +1,17 @@
 
+@media (max-width: 767px) {
+    .chat-list {
+        display: none;
+    }
+
+
+    .messages {
+        flex-grow: 1;
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
 
 .chat-container {
     display: flex;
@@ -10,6 +23,7 @@
     margin: 16px;
     background: white;
     border-radius: 16px;
+    overflow: scroll;
 }
 
 .messages {
@@ -17,7 +31,24 @@
     margin: 16px;
     border-radius: 16px;
     padding: 24px;
-    background-color: rgba(0,0,0,0.05);
+    background-color: white;
+}
+
+.messages-header {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.messages-header > img {
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    height: 35px;
+}
+
+.messages-header > h2 {
+    margin: 0;
+    color: green;
 }
 
 .search-input {
@@ -33,31 +64,9 @@ h4 {
     color: green;
 }
 
-.messages-header {
-    display: flex;
-    margin-bottom: 8px;
-}
-
-.messages-header > img {
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 16px;
-    height: 35px;
-}
-
-.messages-header > h2 {
-    margin: 0;
+mat-icon {
+    width: 100%;
     color: green;
-}
-
-.chat-area  {
-    height: calc(100vh - 300px);
-    display: flex;
-    flex-direction: column;
-}
-
-.chat-area > :first-child {
-    margin-top: auto;
 }
 
 .input-area > mat-form-field {
@@ -71,45 +80,27 @@ h4 {
     padding-bottom: 8px;
 }
 
-mat-icon {
-    width: 100%;
-    color: green;
-}
-
-.chat-bubble-container  {
+chat-area {
+    height: calc(100vh - 300px);
     display: flex;
-    width: 100%;
-    justify-content: flex-start;
+    flex-direction: column;
+    overflow: scroll;
 }
 
-.chat-bubble {
-    background: white;
-    padding-top: 8px;
-    padding-bottom: 18px;
-    padding-left: 8px;
-    padding-right: 100px;
-    margin-bottom: 16px;
-    border-radius:  8px;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: green!important;
+    opacity: 1!important;
+}
+
+mat-divider {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.alert {
+    position: fixed;
     width: fit-content;
-    color: black;
-    position: relative;
-    font-size: 1.25rem;
-}
-
-.chat-bubble-container.sender {
-    justify-content: flex-end;
-}
-
-.chat-bubble-container.sender > .chat-bubble {
-    background: green;
-    color: white;
+    font-size: 10px;
+    color: red;
 }
 
 
-.chat-date {
-    position: absolute;
-    bottom: 2px;
-    right: 8px;
-    font-size: 0.7rem;
-    color: rgba(0,0,0,0.6);
-}

@@ -8,8 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ChatInputComponent } from './components/chat-components/chat-input/chat-input.component';
-import { ChatOutputComponent } from './components/chat-components/chat-output/chat-output.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { MatCardModule } from '@angular/material/card'
@@ -26,35 +24,35 @@ import { MatIconModule } from '@angular/material/icon'
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatListModule } from '@angular/material/list'
+import { ChatArea } from "./components/home/chat-area/chat-area.component";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ChatInputComponent,
-    ChatOutputComponent,
-    ProfileInputComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDividerModule,
-    FormsModule,
-    HttpClientModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatAutocompleteModule,
-    ReactiveFormsModule,
-    MatListModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        ProfileInputComponent,
+        HomeComponent,
+        ChatArea
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDividerModule,
+        FormsModule,
+        HttpClientModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatAutocompleteModule,
+        ReactiveFormsModule,
+        MatListModule,
+    ]
 })
 export class AppModule { }

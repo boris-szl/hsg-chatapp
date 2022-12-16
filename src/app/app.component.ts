@@ -1,6 +1,8 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout'
+import { Person } from './shared/models/person';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,8 +14,22 @@ export class AppComponent {
   sidenav!: MatSidenav;
 
 
+  @Output() nicknameCreate = new EventEmitter<string>();
+  
+  nickname = '';
+  public message = '';
+  public sendToChild = '';
+
   constructor(private observer: BreakpointObserver) {
 
+  }
+
+  public createNickname(nickname: string): void {
+    Person.Nickname = nickname;
+
+    this.message = `nickname: '${Person.Nickname}' created`;
+    this.nicknameCreate.emit(Person.Nickname);
+    this.nickname = Person.Nickname; 
   }
 
   ngAfterViewInit(): void {
@@ -31,12 +47,5 @@ export class AppComponent {
   }
 
   
-
-
-  username: string = "";
-  
-  changeUsername(data: string) {
-    this.username = data;
-  }
 
 }
