@@ -80,12 +80,12 @@ mat-icon {
     padding-bottom: 8px;
 }
 
-chat-area {
+/* chat-area {
     height: calc(100vh - 300px);
     display: flex;
     flex-direction: column;
     overflow: scroll;
-}
+} */
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: green!important;

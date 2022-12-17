@@ -2,6 +2,7 @@
     height: calc(100vh - 300px);
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .chat-area > :first-child {
@@ -9,23 +10,54 @@
 }
 
 .chat-bubble-container  {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
+    display: flex-start;
 }
 
+@media (max-width: 767px) {
+
+}
+
+
 .chat-bubble {
-    background: white;
+    background: green;
     padding-top: 8px;
     padding-bottom: 18px;
     padding-left: 8px;
     padding-right: 100px;
     margin-bottom: 16px;
-    border-radius:  8px;
+    border-radius: 8px;
     width: 100%;
     color: black;
-    position: relative;
     font-size: 1rem;
+}
+
+.chat-header {
+    display: flex;
+}
+
+.chat-header > img {
+    margin-right: 8px;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 35px;
+}
+
+.chat-header > span {
+    margin-left: 3px;
+    margin-top: 7.25px;
+    font-size: 0.7rem;
+    color: whitesmoke;
+    opacity: 0.5;
+}
+
+.chat-header > h4 {
+    margin-top: 4px;
+    color: white;
+}
+
+.chat-bubble > p {
+    margin-left: 42px;
+    color: white;
 }
 
 .chat-bubble-container.sender {
@@ -37,11 +69,5 @@
     color: white;
 }
 
-.chat-date {
-    position: absolute;
-    bottom: 2px;
-    right: 8px;
-    font-size: 0.7rem;
-    color: rgba(0,0,0,0.6);
-}
+
 

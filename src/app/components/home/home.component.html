@@ -6,6 +6,7 @@
                 [formControl]="searchControl"
                 [matAutocomplete]="users"/>
             </mat-form-field> -->
+            <h4>Benutzer online:</h4>
             <mat-autocomplete #users="matAutocomplete">
                 <mat-option *ngFor="let user of users$">
                     {{ user }}
