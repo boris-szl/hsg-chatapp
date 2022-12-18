@@ -37,7 +37,7 @@ export class ChatArea implements OnInit, OnDestroy, AfterViewChecked {
 
         setInterval(() => {
             this.getHistory();
-        }, 1000);
+        }, 500);
     }
 
     ngAfterViewChecked() {        
