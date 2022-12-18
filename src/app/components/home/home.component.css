@@ -27,6 +27,8 @@
 
 .user-online {
     margin: 16px;
+    font-size: 24px;
+    color: green;
 }
 
 .user-list {

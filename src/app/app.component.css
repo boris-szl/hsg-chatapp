@@ -64,10 +64,9 @@ mat-sidenav {
 }
 
 .nickname-input {
-    padding-top: 18px;
+    padding-top: 24px;
     text-align: left;
     width: 100%;
-    position: flex;
 }
 
 .nickname-input > label {
@@ -77,6 +76,7 @@ mat-sidenav {
 
 .nickname-input > input {
     width: 100%;
+    padding-top: 12px;
     color: green;
     padding: 8px;
 }

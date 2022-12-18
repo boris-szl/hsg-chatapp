@@ -1,8 +1,8 @@
-<div class="chat-area">
+<div class="chat-area" #scrollFrame>
     <ng-container *ngIf="nickname as currentUser">
         <ng-container *ngIf="messages as messages$">
             <div 
-            class="chat-bubbble-container"
+            class="chat-bubbble-container" 
             *ngFor="let msg of messages$"
             [ngClass]="{ sender: isItMe(msg.nickname) }">
                 <div class="chat-bubble">
@@ -11,7 +11,7 @@
                     <h4>{{ msg.nickname }}</h4> 
                     <span>{{ msg.createdAt | date : 'M/d/yy, h:mm' : 'fr'}}</span>
                     </div>
-                    <p [innerHTML]="msg.message"></p>
+                    <p class="chat-text" [innerHTML]="msg.message"></p>
                 </div>
               </div>
           <div *ngIf="errorMessage" class="alert alert-warning">{{ errorMessage }}</div>
