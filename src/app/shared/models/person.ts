@@ -1,11 +1,11 @@
 export class Person {
-    private static nickname: string;
+    private nickname?: string;
   
-    public static get Nickname(): string {
-      return this.nickname;
+    public getNickname(): string {
+      return this.nickname!;
     }
   
-    public static set Nickname(value: string) {
+    public setNickname(value: string) {
       this.nickname = value;
     }
   }

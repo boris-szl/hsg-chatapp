@@ -147,8 +147,8 @@ app.delete('/nicknames/:id', function (req, res, next) {
   res.send('Nickname deleted.');
 });
 
-function isNicknameUnique(nickName) {
-  return !nicknames?.some((e) => e.userName === nickName);
+function isNicknameUnique(nickname) {
+  return !nicknames?.some((e) => e.nickname === nickname);
 }
 
 app.listen(app.get('port'), function () {

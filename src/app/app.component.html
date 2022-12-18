@@ -23,18 +23,16 @@
         <div class="user">
             <img class="avatar mat-elevation-z8" src="../assets/default.png">
             <mat-divider></mat-divider>
-            <h4 class-="name">{{ nickname }}</h4>
-            <p class="designation">Student</p>
-            <input
-            [(ngModel)]="nickname"
-            class="form-control"
-            placeholder="type nickname here..."
-            (keydown.enter)="createNickname(nickname)"/>
-            <button
-            class="btn btn-primary"
-            [disabled]="!nickname"
-            (click)="createNickname(nickname)"
-            ></button>
+            <!-- <p class="designation">Student</p> -->
+            <p class-="name">{{ nickname }}</p>
+        </div>
+
+        <div class="nickname-input">
+            <label>Nickname:</label>
+            <input #box 
+            placeholder="Eingabe Nickname..."
+            (keyup.enter)="sendNickname(box.value); box.value=''" maxlength="15"
+            />
         </div>
         <div *ngIf="message" class="alert alert-info">{{ message }}</div>
     </mat-sidenav>

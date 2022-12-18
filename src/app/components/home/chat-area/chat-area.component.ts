@@ -2,6 +2,7 @@ import { AfterViewChecked, Component, ElementRef, Input, OnDestroy, OnInit, View
 import { Subscription } from "rxjs";
 import { ChatService } from "../../../shared/services/chat.service";
 import { ChatMessage } from "src/app/shared/models/message";
+import { response } from "express";
 
 
 @Component({
@@ -68,7 +69,7 @@ export class ChatArea implements OnInit, OnDestroy, AfterViewChecked {
         });
     }
 
-    scrollToBottom(): void {
+    private scrollToBottom(): void {
         try {
             this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
         } catch(err) { }                 

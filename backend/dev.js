@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const chatHistory = [];
-const nicknames = [];
+const nicknames = ['Adrian','Boris'];
 
 // Add headers
 app.use(function (req, res, next) {

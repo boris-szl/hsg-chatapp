@@ -1,32 +1,23 @@
 <div class="chat-container">
     <div class="chat-list mat-elevation-z5">
-        <div class="search-input">
-            <!-- <mat-form-field>
-                <input matInput placeholder="Search for users..." 
-                [formControl]="searchControl"
-                [matAutocomplete]="users"/>
-            </mat-form-field> -->
-            <h4>Benutzer online:</h4>
-            <mat-autocomplete #users="matAutocomplete">
-                <mat-option *ngFor="let user of users$">
-                    {{ user }}
-                </mat-option>
-            </mat-autocomplete>
+        <div class="user-online">
+            <p>Benutzer online: {{ nicknames$.length }}</p>
         </div>
-
-        <mat-selection-list [multiple]="false">
-            <mat-divider></mat-divider>
-            <mat-list-option *ngFor="let chat of messages" [value]="chat">
-                <!-- {{ chat }} -->
-            <img matListAvatar [src]="'assets/default.png'"/>
-            <p mat-line class="chat-title">
-                <span class="chat-name">
-                    {{ chat.nickname }}
-                </span> 
-            </p>
-            <mat-divider></mat-divider>
-            </mat-list-option>
-        </mat-selection-list>
+        <div class="user-list">
+            <mat-selection-list [multiple]="false">
+                <mat-divider></mat-divider>
+                <mat-list-option *ngFor="let user of nicknames$" [value]="user">
+                    <!-- {{ chat }} -->
+                <img matListAvatar [src]="'assets/default.png'"/>
+                <p mat-line class="chat-title">
+                    <span class="chat-name">
+                        {{ user.nickname }}
+                    </span> 
+                </p>
+                <mat-divider></mat-divider>
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
     </div>
     <div class="messages mat-elevation-z5"> 
         <div class="messages-header">
@@ -38,7 +29,7 @@
         <div *ngIf="errorMessage" class="alert alert-warning">{{ errorMessage }}</div>
         <div class="input-area">
             <mat-form-field appearance="outline">
-                <input [(ngModel)]="chatMessage" matInput placeholder="Eingabe der Nachricht ..." (keydown.enter)="sendMessage(chatMessage)"/>
+                <input [(ngModel)]="chatMessage" matInput placeholder="Eingabe der Nachricht ..." (keyup.enter)="sendMessage(chatMessage)"/>
                 <button mat-icon-button matSuffix (click)="sendMessage(chatMessage)" [disabled]="!chatMessage || !nickname">
                     <mat-icon>send</mat-icon>
                 </button>

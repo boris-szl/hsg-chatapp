@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { FormControl } from "@angular/forms";
+import { response } from "express";
 import { Subscription } from "rxjs";
 import { ChatMessage } from "src/app/shared/models/message";
+import { User } from "src/app/shared/models/users";
 import { ChatService } from "src/app/shared/services/chat.service";
 
 
@@ -15,46 +17,8 @@ export class HomeComponent implements OnDestroy {
 
     @Input() nickname = '';
 
-    // user$ = '1';
-    // senderId = '1';
-
     users$ : any = ['Boris', 'Adam', 'Adrian'];
-    // searchControl = new FormControl('');
-    // messageControl = new FormControl('');
-    // chatListControl = new FormControl('');
-    // messages$ : any = [
-    //     {
-    //         'chatId' : 1,
-    //         'senderId': 1,
-    //         'text' : 'Hi',
-    //         'sentDate' : '01/01/2022'
-    //     },
-    //     {
-    //         'chatId' : 2,
-    //         'senderId': 1,
-    //         'text' : "Bye!",
-    //         'sentDate' : '01/01/2022'
-    //     },
-    //     {
-    //         'chatId' : 3,
-    //         'senderId': 2,
-    //         'text' : "Bye!",
-    //         'sentDate' : '01/01/2022'
-    //     }
-    // ];
 
-    myChats$ : any = [
-            {
-            'user': 'Boris'
-            },
-            {
-            'user': 'Adam'
-            },
-            {
-            'user': 'Adrian'
-            }
-    ];
-    
     public chatMessage = '';
     public errorMessage = '';
 
@@ -67,14 +31,15 @@ export class HomeComponent implements OnDestroy {
       }
 
     ngOnInit(): void {
-        this.getHistory();
+        this.getNicknames();
 
         setInterval(() => {
-            this.getHistory();
+            this.getNicknames();
         }, 1000);
     }
 
     public messages: ChatMessage[] = [];
+    public nicknames$: User[] = [];
 
     private getHistory(): void {
         this.chatService$ = this.chatService.getHistory().subscribe({
@@ -87,17 +52,26 @@ export class HomeComponent implements OnDestroy {
         });
     }
 
+    private getNicknames(): void {
+        this.chatService$ = this.chatService.getNicknames().subscribe({
+            next: (response: User[]) => {
+                this.nicknames$ = response;
+            },
+            error: (error: Error) => {
+                this.errorMessage = error.message;
+            }
+        })
+    }
+
     sendMessage(message : string) : void {
         if (!message.trim()) {
-            this.errorMessage = 'Please add text!';
+            this.errorMessage = 'Bitte füge einen Text hinzu!';
             this.chatMessage = '';
-            
             return;
         }
         
         if (!this.nickname) {
-            this.errorMessage = 'Please add nickname!';
-
+            this.errorMessage = 'Bitte füge einen Nicknamen hinzu!';
             return;
         }
         
@@ -119,5 +93,18 @@ export class HomeComponent implements OnDestroy {
             }
         });
     }
+
+    // private getNicknames(): void {
+    //     this.chatService$ = this.chatService.getNicknames().subscribe({
+    //         next: (response: string[]) => {
+    //             response.forEach((element) => {
+    //                 this.nicknames.push(element);
+    //             })
+    //         },
+    //         error: (error: Error) => {
+    //             this.errorMessage = error.message;
+    //         }
+    //     })
+    // }
 
 }

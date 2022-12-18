@@ -17,7 +17,6 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatDividerModule } from '@angular/material/divider';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ProfileInputComponent } from './components/profile-components/profile.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatIconModule } from '@angular/material/icon'
@@ -25,6 +24,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatListModule } from '@angular/material/list'
 import { ChatArea } from "./components/home/chat-area/chat-area.component";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -32,7 +33,6 @@ import { ChatArea } from "./components/home/chat-area/chat-area.component";
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        ProfileInputComponent,
         HomeComponent,
         ChatArea
     ],
@@ -53,6 +53,7 @@ import { ChatArea } from "./components/home/chat-area/chat-area.component";
         MatAutocompleteModule,
         ReactiveFormsModule,
         MatListModule,
+        MatSnackBarModule,
     ]
 })
 export class AppModule { }

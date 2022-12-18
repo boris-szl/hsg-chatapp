@@ -23,7 +23,15 @@
     margin: 16px;
     background: white;
     border-radius: 16px;
+}
+
+.user-online {
+    margin: 16px;
+}
+
+.user-list {
     overflow: scroll;
+    height: calc(100vh - 200px);
 }
 
 .messages {

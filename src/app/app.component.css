@@ -37,6 +37,7 @@ mat-sidenav {
 .name {
     margin-top: 8px;
     font-weight: normal;
+    position: absolute;
 }
 
 .designation {
@@ -62,6 +63,28 @@ mat-sidenav {
 
 }
 
+.nickname-input {
+    padding-top: 18px;
+    text-align: left;
+    width: 100%;
+    position: flex;
+}
+
+.nickname-input > label {
+    font-size: 15px;
+    color: white;
+}
+
+.nickname-input > input {
+    width: 100%;
+    color: green;
+    padding: 8px;
+}
+
+.name {
+    position: fixed;
+}
+
 mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
@@ -78,6 +101,13 @@ mat-icon {
     margin-right: 8px;
 }
 
+.alert {
+    text-align: center;
+    position: fixed;
+    width: fit-content;
+    font-size: 12px;
+    color: lightcoral;
+}
 
 
 

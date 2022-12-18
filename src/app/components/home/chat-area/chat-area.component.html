@@ -9,7 +9,7 @@
                     <div class="chat-header">
                     <img class="chat-image" src="../../../../assets/default.png"/>
                     <h4>{{ msg.nickname }}</h4> 
-                    <span>{{ msg.createdAt }}</span>
+                    <span>{{ msg.createdAt | date : 'M/d/yy, h:mm' : 'fr'}}</span>
                     </div>
                     <p [innerHTML]="msg.message"></p>
                 </div>
